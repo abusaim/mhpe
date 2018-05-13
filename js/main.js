@@ -1,5 +1,59 @@
-var $ = jQuery;
+var $ = jQuery;	
 $(document).ready(function(){
+	// Scrol to top 
+  	$(window).scroll(function () {
+		if ($(this).scrollTop() > 767) {
+			$('.scrollup').fadeIn('slow');
+		} else {
+			$('.scrollup').fadeOut('slow');
+		}
+	});
+
+	$('.scrollup').click(function () {
+		$("html, body").animate({
+			scrollTop: 0
+		}, 1000);
+		return false;
+	});
+	// Main menu sticky	
+  	/*
+  	var num = $('.headerTop').innerHeight(); 
+	var menu_height = $('#main_menu').innerHeight();
+	$(window).bind('scroll', function () {	 
+	 if ($(window).scrollTop() >= num) {
+	  		$('header+section').css({'margin-top':menu_height});
+			$('#main_menu').addClass('sticky');
+		} else {
+			$('#main_menu').removeClass('sticky');
+	  		$('header+section').css({'margin-top':0});
+		}		
+	});*/
+	var nav = $('#main_menu');
+    var header = $('.headerTop');
+    var navHomeY = nav.offset().top;
+    var isFixed = false;
+    var $w = $(window);
+    $w.scroll(function () {
+        var scrollTop = $w.scrollTop();
+        var shouldBeFixed = scrollTop > navHomeY;
+        if (shouldBeFixed && !isFixed) {
+        	$('#main_menu').addClass('sticky');
+            nav.css({
+                position: 'fixed',
+                top: 0,                
+            });
+            header.css('marginTop', nav.height());
+            isFixed = true;
+        } else if (!shouldBeFixed && isFixed) {
+        	$('#main_menu').removeClass('sticky');
+            nav.css({
+                position: 'relative'
+            });
+            header.css('marginTop', 0);
+            isFixed = false;
+        }
+    });
+
 	//main Banner
   $('#main_banner').slick({
     	dots: false,
@@ -9,7 +63,7 @@ $(document).ready(function(){
 	 	autoplay: true,
 	 	autoplaySpeed:5000,
 	 	arrows: false,
-	  	cssEase: 'linear'
+	 	touchMove: true,
   });
   // Brand Logo
   $('#brand_logo').slick({
@@ -60,3 +114,22 @@ $(document).ready(function(){
 	  ]
 	});
 });
+var wow = new WOW ({
+      boxClass:     'wow',      // animated element css class (default is wow)
+      animateClass: 'animated', // animation css class (default is animated)
+      offset:       0,          // distance to the element when triggering the animation (default is 0)
+      mobile:       false       // trigger animations on mobile devices (true is default)
+  });
+wow.init();
+
+
+
+
+
+
+
+
+
+
+
+

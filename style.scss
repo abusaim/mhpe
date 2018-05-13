@@ -132,8 +132,25 @@ a img.aligncenter {
 	/* Above WP toolbar. */
 }/* =WordPress Core End
 -------------------------------------------------------------- */
+/* scroll Top*/
+.scrollup{
+    width: 40px;
+    height: 40px;
+	border-radius:50%;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    display: none;
+    z-index:9999;
+    background: url('images/up.png') no-repeat ;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+    opacity:0.65;	
+}
+.scrollup:hover{opacity:1;}
+
 @media (min-width: 1200px){
-	.container {max-width: 960px;}
+	.container {max-width: 1230px;}
 }
 @media (min-width: 1260px){
 	.container {max-width: 1230px;}
@@ -271,7 +288,8 @@ body{
 		padding-left: 55px;
 		color:$primary-color;
 		position: relative;
-		margin-bottom: 5px;
+		margin-bottom: 0px;
+		padding-bottom: 5px;
 		i{position: absolute;top: 0px;left: 20px;border-radius: 50%;border:1px solid $primary-color;width: 27px;height: 27px;display: block;-webkit-transform: rotate(80deg);-ms-transform: rotate(80deg);-o-transform: rotate(80deg);transform: rotate(80deg);font-size: 14px;text-align: center;padding: 6px 2px 3px 2px;-webkit-transition: all 0.5s;
 		-o-transition: all 0.5s;
 		transition: all 0.5s;}
@@ -282,8 +300,12 @@ body{
 .main_menu{
 	background-color: #3A3A3A;
 	padding: 5px 0px;
-	position: relative;
 	border-bottom: 1px solid #515151;
+	z-index: 999999;
+	width: 100%;
+	.manuInner{
+		position: relative;
+	}
 	.right_button{
 		float: right;
 	}
@@ -310,7 +332,7 @@ body{
 }
 
 %quetebutton{
-	min-width: 150px;
+	min-width: 157px;
 	border:1px solid #5B5B5B;
 	display: inline-block;
 	background-color: $primary-bg;
@@ -326,11 +348,18 @@ body{
 
 .right_button{
 	position: absolute;
-	bottom: 5px;
-	right:15px;
+	bottom: 0px;
+	right:0px;
 	float: right;
 	a{
 		@extend %quetebutton;
+		position: relative;
+		i{
+			position: absolute;
+			top:9px;
+			font-size: 22px;
+			right: 7px;
+		}
 	}
 	a:hover{
 		@extend %quetebuttonhover;
@@ -355,12 +384,28 @@ body{
 		position: static;
 		margin-left: 10px;
 	}
+
 	.main_menu{ 
 		.right_button{
 			margin-top: 20px;
 		}
 		.as_mobile_menu{
 			margin-top: 20px;
+		}
+	}
+	.sticky.main_menu{
+		.right_button{
+			margin-top: 0px;
+		}
+		.as_mobile_menu{
+			margin-top: 0px;
+		}
+	}
+}
+@media (max-width: 575px) {
+	.sticky.main_menu{
+		.right_button{
+			display: none;
 		}
 	}
 }
@@ -378,23 +423,55 @@ body{
 		z-index: 1;
 		position: relative;
 	}
+	.sticky{
+		.logo{
+			margin-top: 0px;
+		}
+	}
 }
 @include devicemin(992px){
 	.as_mobile_menu{display: none!important;}
+	.manuInner{padding-left: 100px;}	
 	.jk_menu{
 		display: block!important;
 		color:#E9EBED;
+		max-width:900px;
 		ul{
 			margin: 0;
 			padding: 0;
 			li{
 				list-style: none;
-				float: left;
 				margin: 0;
 				padding: 0;
 				font-size: 19px;
 				line-height: 22px;
 				font-family: $second-font;
+				position: relative;
+				ul{					
+					padding-top: 5px;
+					position: absolute;
+					top: 100%;
+					left: 0;
+					min-width: 250px;
+					display: none;
+					li{						
+						background-color: #3A3A3A;
+						a{
+							border-width: 0px;
+							padding:10px 15px;							
+						}					
+					+li > a{
+							border-top: 1px solid #515151;
+						}	
+					}
+					li:hover > a, li a:active, li.current-menu-item > a{
+						background-color: #2185DA;
+						border-color:#515151;
+					}
+				}
+				&:hover ul{
+					display: block;
+				}
 				a{
 					display: block;
 					padding:6px 17px 7px;
@@ -405,6 +482,10 @@ body{
 				a:active{
 					color:#fff;
 					border-color: #fff;
+				}
+				&:last-child > ul{
+					left:auto;
+					right:0px;
 				} 
 			}
 			li:hover > a, li a:active, li.current-menu-item > a, li.current-menu-parent > a{
@@ -423,6 +504,9 @@ body{
 		top:-127px;
 		img{
 			max-height: 228px;
+			-webkit-transition: all 0.5s;
+			-o-transition: all 0.5s;
+			transition: all 0.5s;
 		}
 	}
 	.headerTop{padding: 40px 0px 28px;}
@@ -430,13 +514,14 @@ body{
 		address{
 			font-size: 18px;
 			line-height: 23px;
-			letter-spacing: -1.69px;
-			margin-bottom: 19px;
+			letter-spacing: -0.92px;
+			margin-bottom: 0px;
+			padding-bottom: 19px;
 		}
 		a{
 			font-size: 24px;
 			line-height: 28px;
-			letter-spacing: -1.25px;
+			letter-spacing: -0.5px;
 			padding-left: 47px;
 			i{left: 13px;}
 		}
@@ -450,11 +535,12 @@ body{
 	.jk_menu{
 		position: absolute;
 		top: 4px;
-		right:170px;
+		right:173px;
 		z-index: 2;	
+		max-width:850px;
 	}
 	.right_button a{
-		padding:12px 18px 8px;
+		padding:10px 18px 8px;
 		letter-spacing: -0.75px;
 		font-size: 16px;
 		line-height: 19px;
@@ -466,8 +552,18 @@ body{
 	}	
 }
 
+.sticky .logo{
+	top: 0px;
+	img{
+		max-height: 40px;
+	}
+}
+ 
+
 /*main banner*/
 .main_banner{
+	background-color: #000;
+	min-height: 320px;
 	.bgimg{
 		min-height: 320px;
 		background-position: center;
@@ -529,6 +625,7 @@ body{
 }
 @include devicemin(992px){
 	.main_banner{
+		min-height: 420px;
 		.bgimg{
 			min-height: 420px;
 		}
@@ -556,11 +653,12 @@ body{
 }
 @include devicemin(1230px){
 	.main_banner{
+		min-height: 500px;
 		.bgimg{
 			min-height: 500px;
 		}
 		.bannerContent{
-			padding: 155px 0px 20px;
+			padding: 153px 0px 20px;
 			h2{
 				margin-bottom: 15px;
 				letter-spacing: -2px;				
@@ -591,7 +689,8 @@ body{
 	letter-spacing: -0.75px;
 	text-align: center;
 	font-family: $second-font;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
+	color:#43475C;
 }
 h2.sectionTitle{
 	@extend %sectionTitle;
@@ -647,7 +746,7 @@ h2.sectionTitle{
 .serviceBox.blue:after{background-color: rgba(33,133,218,0.88);}
 @include devicemin(1230px){
 	.services{
-		padding: 18px 0px 3px;
+		padding: 49px 0px 3px;
 	}
 	%sectionTitle{
 		font-size: 30px;
@@ -691,6 +790,7 @@ h2.sectionTitle{
 		}
 		p{
 			font-weight: 600;
+			font-size: 14px;
 		}
 	}
 }
@@ -719,9 +819,10 @@ h2.sectionTitle{
 }
 @include devicemin(1230px){
 	.brandContentSec{
-		padding: 77px 0px 117px;
+		padding: 104px 0px 102px;
 		h2{
 			margin-bottom: 15px;
+			letter-spacing: -2.25px;
 		}
 		.brandContent{
 			margin-bottom: 15px;
@@ -729,6 +830,7 @@ h2.sectionTitle{
 				font-weight: 600;
 				line-height: 30px;
 				letter-spacing: -0.75px;
+				font-size: 18px;
 				a,span{
 					font-weight: 700;
 				}
@@ -740,6 +842,9 @@ h2.sectionTitle{
 /* Engineering Services */
 .engi_services{
 	padding: 35px 0px;
+	h2{
+		letter-spacing: -2.25px;
+	}
 	.engiServicesInner{
 		padding-top: 20px;	
 		h5{
@@ -779,7 +884,7 @@ h2.sectionTitle{
 			h5{
 				font-size: 24px;
 				line-height: 28px;
-				letter-spacing: -0.5px;
+				letter-spacing: -1.1px;
 				margin: 25px 0px 13px;
 			}
 			p{
@@ -855,10 +960,10 @@ h2.sectionTitle{
 @include devicemin(1230px){
 	.request_call{
 		h5{
-			margin-bottom: 0;
+			margin-bottom: 5px;
 			font-size: 24px;
 			line-height: 24px;
-			letter-spacing: -1.15px;
+			letter-spacing: -0.5px;
 			padding-top: 6px;
 		}
 		a{
@@ -891,7 +996,7 @@ h2.sectionTitle{
 		margin: 20px 0px;
 	}
 	.copyRight{
-		padding-top: 15px
+		padding-top: 18px;
 		p{
 			font-size: 14px;
 			line-height: 17px;
@@ -901,7 +1006,7 @@ h2.sectionTitle{
 	address{
 		font-size: 18px;
 		line-height: 21px;
-		letter-spacing:-0.5px;
+		letter-spacing:-0.9px;
 	}
 	ul{
 		padding: 0;
@@ -1002,6 +1107,10 @@ h2.sectionTitle{
 	.rss {
 	  background: #ff6600;
 	  color: white;
+	}
+	.github {
+	  background: #999999;
+	  color: white;
 	}	
 }
 @include devicemin(768px){
@@ -1040,12 +1149,16 @@ h2.sectionTitle{
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	padding: 20px 0px;
+	.container{
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
 	h1{
 		font-family: $second-font;
 		font-weight: 400;
 		font-size: 30px;
 		line-height: 32px;
+		max-width: 600px;
 	}
 	.bannerButton{
 		padding: 10px 0px 5px;
@@ -1061,7 +1174,10 @@ h2.sectionTitle{
 }
 @include devicemin(576px){
 	.banner{
-		padding: 50px 0px;
+		.container{
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
 		h1{
 			font-size: 40px;
 			line-height: 44px;
@@ -1077,12 +1193,16 @@ h2.sectionTitle{
 }
 @include devicemin(992px){
 	.banner{
-		padding: 64px 0px 61px;
+		.container{
+			padding-top: 64px;
+			padding-bottom: 37px;
+		}
+		min-height: 202px;
 		h1{
 			font-size: 40px;
-			line-height: 44px;
+			line-height: 47px;
 			letter-spacing: -1.95px;
-			padding-top: 5px;
+			padding-top: 7px;
 			margin-bottom: 0;
 		}
 		.bannerButton{
@@ -1185,7 +1305,9 @@ h2.sectionTitle{
 @include devicemin(992px){
 	.pageContent{
 		border-bottom: 1px solid #878787;
-		margin-bottom: 20px;
+		margin-bottom: 20px;		
+	}
+	.minH11200{
 		min-height: 1200px;
 	}
 	.blogSecContent{
@@ -1205,17 +1327,29 @@ h2.sectionTitle{
 		}
 	}
 }
-@include devicemin(1230px){	
+@include devicemin(1230px){		
+	.as_breadcrumb{
+		.breadcrumb{
+			padding-bottom:59px;
+		}
+	}
 	.blogSec{
 		margin-top: 45px;
-		margin-bottom: 78px;
-
+		margin-bottom: 78px;		
 		.col-md-2{
-			max-width:11%;
+			max-width:13%;
 		}
 		.col-md-10{
-			max-width:89%;
+			max-width:87%;
 		}
+	}
+	.blogOuter{
+		div{
+			&:first-child{
+				margin-top: 0;
+			}
+		}
+		
 	}
 	.blogSecContent{
 		h5{
@@ -1374,8 +1508,8 @@ h2.sectionTitle{
 		}
 		.two_colum{	
 			margin-bottom: 11px;	
-			label{float: left;width: 46px;padding-top: 11px;}
-			input{float: left;width: 37px;}		
+			label{float: left;width: 55px;padding-top: 11px;}
+			input{float: left;width: 37px;padding: 2px;text-align: center;}		
 		}
 		input[type="submit"]{
 			font-family: $second-font-bold;
@@ -1395,14 +1529,42 @@ h2.sectionTitle{
 		}
 	}
 }
+@media (min-width: 992px) and (max-width: 1199px) {
+	.sidebar .request_from .two_columOuter{
+		margin-top: 10px;		
+	}
+	.sidebar .request_from .two_columOuter > div{
+		max-width:100%;		
+		width:100%;
+		flex: 0 0 100%;
+		text-align: left!important;		
+		input{
+			width:98px;
+		}
+	}
+}
 @include devicemin(992px){
 	.sidebar{
-		margin: 20px 0 20px auto;
+		margin: 0px 0 20px auto;
 	}
 }
 /*Contact page*/
 .contactOuter{
 	padding-bottom: 30px;
+	.socialMedia{
+		h3{
+			margin-bottom: 27px;
+		}
+		a{
+			border-radius: 5px;
+			height: 47px;
+			width:auto;
+			min-width: 105px;
+			font-size: 15px;
+			padding: 5px 10px;
+			margin-bottom: 5px;
+		}
+	}
 }
 h3.highlight{
 	font-family: $second-font-bold;
@@ -1468,6 +1630,13 @@ h3.highlight{
 		-webkit-transition: all 0.4s;
 		-o-transition: all 0.4s;
 		transition: all 0.4s;
+		width:173px;
+		padding: 12px 28px 7px  10px;
+		font-size: 21px;
+		height: 50px;
+		background-image: url('images/right_arrow.png');
+		background-repeat: no-repeat;
+		background-position: 90% 20px;
 		&:hover{
 			background-color:#31A1A3;
 		}
@@ -1516,7 +1685,7 @@ h3.highlight{
 				color:#31A1A3;
 			}
 		}
-	}
+	}	
 }
 
 @include devicemin(576px){
@@ -1539,9 +1708,10 @@ h3.highlight{
 	h3.highlight{
 		font-size: 30px;
 		line-height: 34px;
+		letter-spacing: 0px;
 	}
 	.contact_address{
-		margin: 56px 0px 77px 0px;
+		margin: 10px 0px 77px 0px;
 		padding: 17px 44px 62px;
 		address{
 			font-size: 23px;
@@ -1559,7 +1729,179 @@ h3.highlight{
 		}
 	}
 	.contact_from{
-		margin:56px 0px 30px 0px;
+		margin: 10px 0px 30px 0px;
 		padding: 23px 31px 12px 48px;
 	}
+	.maps{
+		h3{
+			margin-bottom: 27px;
+		}
+	}
 }
+
+
+/*About pages*/
+.aboutbg{
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center;
+	color:#fff;
+	padding: 35px;
+	text-align: center;
+}
+.aboutInner{
+	background-color: rgba(50, 49, 50, 0.72);
+	padding:40px 15px 20px;
+	height: 100%; 
+	h3{
+		font-size: 28px;
+		line-height: 31px;
+		letter-spacing: -1.1px;
+	}
+	h4{
+		font-family: $second-font-bold;
+		font-size: 20px;
+		line-height: 20px;
+		letter-spacing: -1.1px;
+		text-align: center;
+		color:#fff;
+		a{
+			white-space: nowrap;
+			display: inline-block;
+			color:#fff;
+			padding-right: 10px;
+			position: relative;
+			&:hover{
+				color:$primary-bg;
+				&:before{
+					color:#fff;
+				}
+			}
+			+a{
+				padding-left: 20px;
+				&:before{
+					content:'/';
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
+			}
+		}
+
+	}
+}
+.callIcon{
+	text-align: center;
+	margin:15px 0px;
+	i{
+		border-radius: 50%;
+		border:5px solid #2185DA;
+		width: 78px;
+		height: 78px;
+		display: inline-block;
+		-webkit-transform: rotate(80deg);
+		-ms-transform: rotate(80deg);
+		-o-transform: rotate(80deg);
+		transform: rotate(80deg);
+		font-size: 40px;
+		padding:14px;
+		text-align: center;
+		color: #2185DA;
+		text-align: center;
+
+	}
+}
+
+.engineerServices{
+	margin-top: 30px;
+	.serviceboxs{
+		margin:15px 0px;
+	}
+	h5{
+		font-size: 24px;
+		line-height: 28px;
+		letter-spacing: -1.1px;
+		margin: 0px 0px 10px;
+		font-family: $second-font-bold;
+		a{
+			&:hover{
+				color:#31A1A3;
+			}
+		}
+	}
+	p{
+		font-size: 18px;
+		line-height: 22px;
+		letter-spacing: -1.45px;
+		font-weight: 600;
+	}
+}
+
+@include devicemin(992px){
+	.aboutbg{
+		margin-top: 80px;
+	}
+	.aboutInner{
+		padding:96px 15px 109px; 
+		> *{
+			max-width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		h3{
+			font-size: 48px;
+			line-height: 59px;
+			letter-spacing: -1.1px;
+			max-width: 450px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		h4{
+			font-size: 40px;
+			line-height: 43px;
+			letter-spacing: -1.9px;
+			a{
+				padding-right: 10px;
+				+a{
+					padding-left: 30px;
+				}
+			}
+
+		}
+		p{
+			font-size: 18px;
+			line-height: 30px;
+		}
+		.callIcon{
+			margin-top:34px;
+			margin-bottom:17px;
+		}
+	}
+	.engineerServices{
+		margin-top: 80px;
+		width:100%;
+		max-width: 472px;
+		h5{
+			margin:9px 0px 10px;
+		}
+		.serviceboxs{
+			margin:50px 0px;
+		}
+		div{			
+			&:first-child{
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
