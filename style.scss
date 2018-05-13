@@ -748,6 +748,9 @@ h2.sectionTitle{
 	.services{
 		padding: 49px 0px 3px;
 	}
+	.pageContent+.services{
+		padding: 10px 0px 3px;
+	}
 	%sectionTitle{
 		font-size: 30px;
 		line-height: 35px;
@@ -1542,6 +1545,23 @@ h2.sectionTitle{
 			width:98px;
 		}
 	}
+	.contact_from input[type="submit"]{
+		width: 150px!important;
+	}
+}
+@media (max-width: 400px) {
+	.sidebar .request_from .two_columOuter{
+		margin-top: 10px;		
+	}
+	.sidebar .request_from .two_columOuter > div{
+		max-width:100%;		
+		width:100%;
+		flex: 0 0 100%;
+		text-align: left!important;		
+		input{
+			width:98px;
+		}
+	}
 }
 @include devicemin(992px){
 	.sidebar{
@@ -1562,7 +1582,7 @@ h2.sectionTitle{
 			min-width: 105px;
 			font-size: 15px;
 			padding: 5px 10px;
-			margin-bottom: 5px;
+			margin-bottom: 4px;
 		}
 	}
 }
