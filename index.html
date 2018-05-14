@@ -8,6 +8,8 @@
 	<title>MHPE</title>	
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet"><!-- font-family: 'Open Sans', sans-serif; -->
 	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/hover-min.css">
+	<!-- <link rel="stylesheet" href="css/carousel-animate.css"> -->
 	<link rel="stylesheet" href="css/slick.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/fontawesome-all.min.css">
@@ -17,7 +19,7 @@
 	<header class="header">
 		<div class="headerTop">
 			<div class="container clearfix">
-				<div class="topright text-center float-md-right wow fadeInDown" data-wow-duration="0.5s" data-wow-delay="0.2s">
+				<div class="topright text-center float-xl-right">
 					<address>Unit 1, The Ironworks, Dale Street, Accrington<br>Lancashire, BB5 0AP</address>
 					<div class="hotLine">
 						<a href="tel:01254311201" class="d-inline-block"><i class="fas fa-phone"></i> 01254 311 201</a>
@@ -28,19 +30,24 @@
 		</div>
 		<div class="main_menu" id="main_menu">
 			<div class="container">
-				<div class="logo wow zoomIn" data-wow-duration="0.7s" data-wow-delay="0.0s">
-					<a href="index.html"><img src="images/logo.png" alt="img"></a>
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" alt="img" class=" wow zoomIn" data-wow-duration="0.7s" data-wow-delay="0.0s"></a>
+				</div>
+				<div class="stickylogo">
+					<a href="index.html">
+						<img src="images/stickylogo.png" alt="img" class="wow zoomIn" data-wow-duration="0.4s" data-wow-delay="0.0s">
+					</a>
 				</div>
 				<nav class="manuInner clearfix">				  			  
 				  	<a href="#jk_menu" class="as_mobile_menu" title="Menu">
 						<i class="fa fa-bars" aria-hidden="true"></i>
 					</a>
-					<div class="right_button">
-						<a href="#" class="wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.4s">Get a free quote <i class="fas fa-angle-right"></i></a>
+					<div class="right_button wow fadeInDown" data-wow-duration="0.7s" data-wow-delay="2s">
+						<a href="#" class="hvr-wobble-skew">Get a free quote <i class="fas fa-angle-right"></i></a>
 					</div>                            
 				  	<div id="jk_menu" class="jk_menu">
 				    	<ul class="nav justify-content-end">
-				      		<li class="current-menu-item"><a href="index.html">Home</a></li>				     		 
+				      		<li class="current-menu-item"><a href="index.html">Home</a></li>			     		 
 				      		<li><a href="about.html">About</a></li>				     		 
 				      		<li><a href="inner.html">Services</a></li>				     		 
 				      		<li><a href="blog.html">Recent work</a></li>				     		 
@@ -50,16 +57,16 @@
 				</nav>
 			</div>
 		</div>
-	</header>
-	<section class="main_banner"><!-- Banner section -->
+	</header> 
+	<section class="main_banner "><!-- Banner section -->
 		<div id="main_banner">
 		  	<div class="bgimg slick-slide" style="background-image: url('images/main_banner.jpg');">
 		  		<div class="container">
 		  			<div class="bannerContent">
-		  				<h2 class="wow fadeInDown" data-wow-duration=".5s" data-wow-delay="0.5s">Professional<span> Precision Engineering</span> Services</h2>
-			  			<h3 class="wow fadeInLeft" data-wow-duration=".5s" data-wow-delay="1.6s">Quality, Reliability, Service and Value.</h3>
-			  			<div class="bannerButton">
-			  				<a href="#" class="wow fadeInUp" data-wow-duration=".5s" data-wow-delay="1s">More information</a>
+		  				<h2  class="wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.4s">Professional<span> Precision Engineering</span> Services</h2>
+			  			<h3 class="wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.9s">Quality, Reliability, Service and Value.</h3>
+			  			<div class="bannerButton wow fadeInUp" data-wow-duration=".5s" data-wow-delay="1.4s">
+			  				<a href="#" class="hvr-wobble-skew">More information</a>
 			  			</div>
 		  			</div>
 		  		</div>
@@ -67,10 +74,10 @@
 		  	<div class="bgimg slick-slide" style="background-image: url('images/main_banner.jpg');">
 		  		<div class="container">
 		  			<div class="bannerContent">
-		  				<h2 class="wow fadeInDown" data-wow-duration=".5s" data-wow-delay="5.5s">Professional<span> Precision Engineering</span> Services 2</h2>
-			  			<h3 class="wow fadeInLeft" data-wow-duration=".5s" data-wow-delay="6.6s">Quality, Reliability, Service and Value.</h3>
-			  			<div class="bannerButton">
-			  				<a href="#" class="wow fadeInUp" data-wow-duration=".5s" data-wow-delay="6s">More information</a>
+		  				<h2  class="wow fadeInUp" data-wow-duration=".5s" data-wow-delay="5.4s">Professional<span> Precision Engineering</span> Services 2</h2>
+			  			<h3 class="wow fadeInUp" data-wow-duration=".5s" data-wow-delay="5.9s">Quality, Reliability, Service and Value.</h3>
+			  			<div class="bannerButton wow fadeInUp" data-wow-duration=".5s" data-wow-delay="6.4s">
+			  				<a href="#" class="hvr-wobble-skew">More information</a>
 			  			</div>
 		  			</div>
 		  		</div>
@@ -79,27 +86,27 @@
 	</section>                                     
 	<section class="services"><!-- Services section -->
 		<div class="container-fluid">
-			<h2 class="sectionTitle wow zoomIn" data-wow-duration=".5s" data-wow-delay="0.2s">Professional Engineering Services Lancashire</h2>
+			<h2 class="sectionTitle wow zoomIn" data-wow-duration="0.5s" data-wow-delay="0.2s">Professional Engineering Services Lancashire</h2>
 			<div class="row">
-				<div class="col-sm-6 col-lg-4 serviceBox wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.6s" style="background-image: url('images/service1.png');">
-					<div class="boxInner wow zoomIn" data-wow-duration=".5s" data-wow-delay="0.9s">
+				<div class="col-sm-6 col-lg-4 serviceBox wow zoomIn" data-wow-duration="0.5s" data-wow-delay="0.6s" style="background-image: url('images/service1.png');">
+					<div class="boxInner wow zoomIn" data-wow-duration=".5s" data-wow-delay="1.0s">
 						<h4>Turret Mill</h4>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-						<a href="#" class="serviceBtn">Find out more...</a>
+						<a href="#" class="hvr-rectangle-out serviceBtn">Find out more...</a>
 					</div>
 				</div>
-				<div class="col-sm-6 col-lg-4 blue serviceBox wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.9s" style="background-image: url('images/service2.png');">
-					<div class="boxInner wow zoomIn" data-wow-duration=".5s" data-wow-delay="1.2s">
+				<div class="col-sm-6 col-lg-4 blue serviceBox wow zoomIn" data-wow-duration="0.5s" data-wow-delay="0.6s" style="background-image: url('images/service2.png');">
+					<div class="boxInner wow zoomIn" data-wow-duration=".5s" data-wow-delay="1.0s">
 						<h4>Radial Arm Drill</h4>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-						<a href="#" class="serviceBtn">Find out more...</a>
+						<a href="#" class="hvr-rectangle-out serviceBtn">Find out more...</a>
 					</div>
 				</div>
-				<div class="col-sm-6 col-lg-4 serviceBox wow fadeInUp" data-wow-duration=".5s" data-wow-delay="1.2s" style="background-image: url('images/service3.png');">
-					<div class="boxInner wow zoomIn" data-wow-duration=".5s" data-wow-delay="1.5s">
+				<div class="col-sm-6 col-lg-4 serviceBox wow zoomIn" data-wow-duration="0.5s" data-wow-delay="0.6s" style="background-image: url('images/service3.png');">
+					<div class="boxInner wow zoomIn" data-wow-duration="0.5s" data-wow-delay="1.0s">
 						<h4>Welding & Fabrication</h4>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-						<a href="#" class="serviceBtn">Find out more...</a>
+						<a href="#" class="hvr-rectangle-out serviceBtn">Find out more...</a>
 					</div>
 				</div>
 			</div>
@@ -188,22 +195,22 @@
 			</div>
 		</div>
 	</section>
-	<div class="request_call wow zoomIn" data-wow-duration="0.3s" data-wow-delay="0.4s"><!-- Request Call -->
+	<div class="request_call"><!-- Request Call -->
 		<div class="container">
 			<div class="requestInner row justify-content-center">
-				<div class="col-sm-8 col-xl-5 wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.9s">
+				<div class="col-sm-8 col-xl-5">
 					<h5>Find out more from our team of professionals</h5>
 					<a href="tel:01254311201"><i class="fas fa-phone"></i> 01254 311 201</a>
 				</div>
-				<div class="col-sm-4 col-xl-3 req_call wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.9s">
-					<a href="#">Request Pricing</a>
+				<div class="col-sm-4 col-xl-3 req_call">
+					<a href="#" class="hvr-wobble-skew">Request Pricing</a>
 				</div>
 			</div>
 		</div>
 	</div>
 	<footer class="as_footer">
 		<div class="container">
-			<div class="footerInner row wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.5s">
+			<div class="footerInner row">
 				<div class="col-sm-6 col-xl-5">
 					<div class="footerBox">
 						<address>

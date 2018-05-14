@@ -298,6 +298,7 @@ body{
 	a:hover i{color:$primary-color;}
 }
 .main_menu{
+	height: 50px;
 	background-color: #3A3A3A;
 	padding: 5px 0px;
 	border-bottom: 1px solid #515151;
@@ -315,31 +316,32 @@ body{
 	}
 	.as_mobile_menu{
 		float: right;
-		margin-left: 10px;
+		margin-left: 5px;
 		i{
-			width:35px;
-			height: 35px;
+			width:40px;
+			height: 40px;
 			border:1px solid #fff;
 			text-align: center;
 			color: #fff;
 			display: block;
 			font-size: 20px;
-			line-height: 35px;
+			line-height: 40px;
 			border-radius: 4px;
 		}
 	}
 	.as_mobile_menu:hover{background-color: $primary-bg;}
 }
 
+
 %quetebutton{
-	min-width: 157px;
+	min-width: 120px;
 	border:1px solid #5B5B5B;
 	display: inline-block;
 	background-color: $primary-bg;
 	color:#fff;
 	border-radius: 5px;
-	padding: 5px 15px;
-	font-family: $second-font-bold;
+	padding: 7px 10px;
+	font-family: $second-font;
 	letter-spacing: -0.71px;
 }
 %quetebuttonhover{
@@ -347,28 +349,50 @@ body{
 }
 
 .right_button{
-	position: absolute;
-	bottom: 0px;
-	right:0px;
 	float: right;
 	a{
 		@extend %quetebutton;
-		position: relative;
+		position: relative;		
 		i{
 			position: absolute;
 			top:9px;
 			font-size: 22px;
-			right: 7px;
+			right: 7px;	
+			display: none;		
 		}
-	}
-	a:hover{
-		@extend %quetebuttonhover;
-	}
+		&:before{
+			background-color: #fff;
+			border-radius: 3px;
+		}
+		&:hover{
+			@extend %quetebuttonhover;
+		}
+	}	
 }
 .logo{
 	float: left;
+	z-index: 2;
+	position: relative;	
 	img{
-		max-height: 80px;
+		max-height: 40px;
+	}
+}
+.stickylogo{
+	display: none;
+	float: left;
+	z-index: 2;
+	position: relative;
+	img{
+		max-height: 40px;
+	}
+}
+
+.sticky{
+	.logo{
+		display: none;		
+	}
+	.stickylogo{
+		display: block;
 	}
 }
 
@@ -384,31 +408,16 @@ body{
 		position: static;
 		margin-left: 10px;
 	}
+	.sticky.main_menu{
+		.right_button{
+			margin-top: 0px;
+		}
+		.as_mobile_menu{
+			margin-top: 0px;
+		}
+	}	
+}
 
-	.main_menu{ 
-		.right_button{
-			margin-top: 20px;
-		}
-		.as_mobile_menu{
-			margin-top: 20px;
-		}
-	}
-	.sticky.main_menu{
-		.right_button{
-			margin-top: 0px;
-		}
-		.as_mobile_menu{
-			margin-top: 0px;
-		}
-	}
-}
-@media (max-width: 575px) {
-	.sticky.main_menu{
-		.right_button{
-			display: none;
-		}
-	}
-}
 @include devicemin(768px){
 	.main_menu{ 
 		.right_button{
@@ -419,7 +428,6 @@ body{
 		}
 	}
 	.logo{
-		margin-top: -50px;
 		z-index: 1;
 		position: relative;
 	}
@@ -430,6 +438,10 @@ body{
 	}
 }
 @include devicemin(992px){
+	%quetebutton{
+		min-width: 157px;
+		padding: 5px 15px;	
+	}	
 	.as_mobile_menu{display: none!important;}
 	.manuInner{padding-left: 100px;}	
 	.jk_menu{
@@ -495,8 +507,17 @@ body{
 		}
 	}
 }
-
-@include devicemin(1230px){
+@include devicemin(1200px){
+	.topright{
+		max-width: 415px;
+	}	
+	.right_button{
+		a{
+			i{	
+				display: block;		
+			}
+		}
+	}
 	.logo{
 		margin-top: 0px;
 		position: absolute;
@@ -507,6 +528,11 @@ body{
 			-webkit-transition: all 0.5s;
 			-o-transition: all 0.5s;
 			transition: all 0.5s;
+		}
+	}
+	.main_menu{		
+		.container{
+			position: relative;
 		}
 	}
 	.headerTop{padding: 40px 0px 28px;}
@@ -525,13 +551,7 @@ body{
 			padding-left: 47px;
 			i{left: 13px;}
 		}
-	}
-	.main_menu{
-		height: 50px;
-		.container{
-			position: relative;
-		}
-	}
+	}	
 	.jk_menu{
 		position: absolute;
 		top: 4px;
@@ -552,9 +572,8 @@ body{
 	}	
 }
 
-.sticky .logo{
-	top: 0px;
-	img{
+.sticky{
+	.stickylogo{
 		max-height: 40px;
 	}
 }
@@ -563,7 +582,11 @@ body{
 /*main banner*/
 .main_banner{
 	background-color: #000;
-	min-height: 320px;
+	.container{
+		min-height: 320px;		
+		display: flex;
+		align-items: center;
+	}
 	.bgimg{
 		min-height: 320px;
 		background-position: center;
@@ -616,6 +639,10 @@ body{
 				border-radius: 5px;
 				border:1px solid transparent;
 				text-align: center;
+				&:before{
+					background-color: #fff;
+					border-radius: 5px;
+				}
 			}
 			a:hover{
 				border-color: #fff;
@@ -625,7 +652,9 @@ body{
 }
 @include devicemin(992px){
 	.main_banner{
-		min-height: 420px;
+		.container{
+			min-height: 420px;
+		}
 		.bgimg{
 			min-height: 420px;
 		}
@@ -653,12 +682,15 @@ body{
 }
 @include devicemin(1230px){
 	.main_banner{
-		min-height: 500px;
 		.bgimg{
+			min-height: 500px;
+		}
+		.container{
 			min-height: 500px;
 		}
 		.bannerContent{
 			padding: 153px 0px 20px;
+			padding: 0px;
 			h2{
 				margin-bottom: 15px;
 				letter-spacing: -2px;				
@@ -696,7 +728,7 @@ h2.sectionTitle{
 	@extend %sectionTitle;
 }
 .services{
-	padding: 15px 0px 3px;
+	padding: 15px 0px 3px;	
 }
 .serviceBox{
 	-webkit-background-size: cover;
@@ -728,9 +760,12 @@ h2.sectionTitle{
 			line-height: 36px;
 			letter-spacing: -0.5px;
 			margin: 10px 0px;
+			background: transparent;
+			&:before{
+				background-color:#fff;
+			}
 		}
 		a.serviceBtn:hover{
-			background-color: #fff;
 			color:$primary-bg;
 		}
 		p{
@@ -744,9 +779,10 @@ h2.sectionTitle{
 }
 .serviceBox:after{width: 100%;height: 100%;background-color: rgba(0,0,0,0.85);position: absolute;top: 0;left: 0;content: '';display: block;}
 .serviceBox.blue:after{background-color: rgba(33,133,218,0.88);}
+.serviceBox:before{width: 1px;height: 100%;background-color: #000;position: absolute;top: 0;left: -1px;content: '';display: block;}
 @include devicemin(1230px){
 	.services{
-		padding: 49px 0px 3px;
+		padding: 49px 0px 3px;		
 	}
 	.pageContent+.services{
 		padding: 10px 0px 3px;
@@ -1170,7 +1206,12 @@ h2.sectionTitle{
 			font-family: $primary-font;
 			text-align: center;
 			&:hover{
+				color: #fff;
 				border-color: #fff;
+			}
+			&:before{
+				background-color: #fff;
+				border-radius: 5px;
 			}
 		}
 	}
@@ -1399,7 +1440,7 @@ h2.sectionTitle{
 			a{
 				color:#606060;
 				display: block;
-				padding: 18px 20px 11px;
+				padding: 16px 20px 13px;
 				&:hover{
 					color: $primary-bg;;
 				}
@@ -1915,6 +1956,15 @@ h3.highlight{
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
 
 
 

@@ -42,7 +42,7 @@ $(document).ready(function(){
                 position: 'fixed',
                 top: 0,                
             });
-            header.css('marginTop', nav.height());
+            header.css('marginTop', 50);
             isFixed = true;
         } else if (!shouldBeFixed && isFixed) {
         	$('#main_menu').removeClass('sticky');
